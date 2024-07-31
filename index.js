@@ -17,8 +17,8 @@ app.set('views', path.join(__dirname, 'views'));
 const config = {
     user: 'azureuser',
     password: 'P@ssw0rdssss',
-    server: 'week9372.database.windows.net',
-    database: 'week9',
+    server: 'task2372.database.windows.net',
+    database: 'task2',
     options: {
         encrypt: true,
         enableArithAbort: true
@@ -38,9 +38,9 @@ async function connectToDatabase() {
 connectToDatabase();
 
 // Routes
-app.get('/', async(req, res) => {
+app.get('/', async (req, res) => {
     try {
-        const result = await sql.query `SELECT * FROM Expenses`;
+        const result = await sql.query`SELECT * FROM Expenses`;
         res.render('index', { expenses: result.recordset });
     } catch (err) {
         console.error('Error retrieving expenses:', err);
@@ -48,7 +48,7 @@ app.get('/', async(req, res) => {
     }
 });
 
-app.post('/add-expense', async(req, res) => {
+app.post('/add-expense', async (req, res) => {
     const { category, amount, date, description } = req.body;
     try {
         const query = `
@@ -70,7 +70,7 @@ app.post('/add-expense', async(req, res) => {
 });
 
 // Endpoint to add a random expense
-app.get('/add-random-expense', async(req, res) => {
+app.get('/add-random-expense', async (req, res) => {
     try {
         const categories = ['Food', 'Transport', 'Phone', 'Entertainment', 'Other'];
         const randomCategory = categories[Math.floor(Math.random() * categories.length)];
