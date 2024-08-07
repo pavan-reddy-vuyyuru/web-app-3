@@ -17,8 +17,8 @@ app.set('views', path.join(__dirname, 'views'));
 const config = {
     user: 'azureuser',
     password: 'P@ssw0rdssss',
-    server: 'task2372.database.windows.net',
-    database: 'task2',
+    server: 'pavan123inclass.database.windows.net',
+    database: 'pavandatabase',
     options: {
         encrypt: true,
         enableArithAbort: true
